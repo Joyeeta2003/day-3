@@ -17,11 +17,14 @@ app.post("/notes",async (req, res)=>{
     })
 })
 
-// app.get("/notes", (req, res)=>{
-//     res.status(200).json({
-//         notes: notes
-//     })
-// })
+app.get("/notes",async (req, res)=>{
+    const notes = await noteModel.find()
+
+    res.status(200).json({
+        message:"note fetch sucessfully",
+        notes
+    })
+})
 
 // app.delete("/notes/:index",(req,res)=>{
 //     delete notes[req.params.index];
